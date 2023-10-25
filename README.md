@@ -71,7 +71,7 @@ python test_palette.py --dataroot ./datasets/icon/test --test_palette_json TEST_
 
 * To achieve automatic or palette-based diverse colorization, you can add noises to a specific palette or directly use a random palette. For more details, please refer to Line 707-716 in file "data/aligned_dataset.py".
 
-* To achieve style interpolation, you need to load the Image-guided model and Palete-guided model, and then adjust the weights applied to the encoded style features. For more details, please refer to Line 167 in file "models/reference_generator_palette.py".
+* To achieve style interpolation, you need to load the Image-guided model and Palete-guided model, and then adjust the weights applied to the encoded style features. For more details, please refer to Line 164 in file "models/reference_generator_palette.py".
 
 
 ## Citation
