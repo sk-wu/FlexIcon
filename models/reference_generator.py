@@ -82,9 +82,6 @@ class ConvBlock(nn.Module):
 
 
 class Encoder(nn.Module):
-    """Discriminator network with PatchGAN.
-    W = (W - F + 2P) /S + 1"""
-
     def __init__(self, in_channels=1, spec_norm=False, LR=0.2):
         super(Encoder, self).__init__()
 
@@ -118,9 +115,6 @@ class Encoder(nn.Module):
 
 
 class ReferenceGenerator(nn.Module):
-    """Discriminator network with PatchGAN.
-    W = (W - F + 2P) /S + 1"""
-
     def __init__(self, spec_norm=False, LR=0.2):
         super(ReferenceGenerator, self).__init__()
 
@@ -165,27 +159,15 @@ class ReferenceGenerator(nn.Module):
         self.decoder = Decoder()
 
     def extract_content(self, x: torch.Tensor) -> torch.Tensor:
-        '''
-        U-Net: image (B 3 H W) -> contour (B 1 H W)
-        '''
         return self.content_extractor(x)
 
     def encode_content(self, c: torch.Tensor) -> torch.Tensor:
-        '''
-        U-Net: contour (B 1 H W) -> embeddings (B E H W)
-        '''
         return self.content_encoder(c)
 
     def encode_style(self, x: torch.Tensor) -> torch.Tensor:
-        '''
-        ResNet: image (B 3 H W) -> style (B S)
-        '''
         return self.style_encoder(x)
 
     def decode(self, e: torch.Tensor, s: torch.Tensor) -> torch.Tensor:
-        '''
-        PixelwiseDecoder: embeddings (B E H W) + style (B S) -> output (B 3 H W)
-        '''
         B, _, H, W = e.shape
 
         s = einops.repeat(s, 'B S -> B S H W', B=B, H=H, W=W)
@@ -201,10 +183,6 @@ class ReferenceGenerator(nn.Module):
         return r
 
     def forward(self, c, x, color_theme=None, tps_reference=None):  # c is line art, x is reference image
-        '''
-        ReferenceBasedColorizer: contour (B 1 H W) + image (B 3 H W) -> output (B 3 H W)
-        '''
-
         # Reconstruction Error
         ext1 = self.encode_content(c)  # content
         style1 = self.encode_style(x)  # style
@@ -226,10 +204,6 @@ class ReferenceGenerator(nn.Module):
         return rec11, rec12, contour_x, unaligned_style_image
 
     def forward_inference(self, c, x, color_theme=None, tps_reference=None):  # c is line art, x is reference image
-        '''
-        ReferenceBasedColorizer: contour (B 1 H W) + image (B 3 H W) -> output (B 3 H W)
-        '''
-
         # Reconstruction Error
         ext1 = self.encode_content(c)  # content
         style1 = self.encode_style(x)  # style

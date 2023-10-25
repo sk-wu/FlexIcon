@@ -105,9 +105,6 @@ class ConvBlock(nn.Module):
 
 
 class Encoder(nn.Module):
-    """Discriminator network with PatchGAN.
-    W = (W - F + 2P) /S + 1"""
-
     def __init__(self, in_channels=1, spec_norm=False, LR=0.2):
         super(Encoder, self).__init__()
 
