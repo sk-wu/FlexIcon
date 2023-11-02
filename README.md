@@ -79,6 +79,15 @@ python test_palette.py --dataroot ./datasets/icon/test --test_palette_json TEST_
 If you find this useful for your research, please cite our paper.
 
 
+    @inproceedings{wu2023flexicon,
+         title={FlexIcon: Flexible Icon Colorization via Guided Images and Palettes},
+         author={Wu, Shukai and Yang, Yuhang and Xu, Shuchang and Liu, Weiming and Yan, Xiao and Zhang, Sanyuan},
+         booktitle={Proceedings of the 31st ACM International Conference on Multimedia},
+         pages={8662--8673},
+         year={2023}
+    }
+
+
 ## Acknowledgments
 
 This version borrows some code from [DeepSIM](https://github.com/eliahuhorwitz/DeepSIM), [CoCosNet](https://github.com/microsoft/CoCosNet) and [IconFlow](https://github.com/djosix/IconFlow).
