@@ -305,7 +305,7 @@ class ReferenceModel(BaseModel):
 
         loss_G_Content_Consistency = 0
         contour_2 = None
-        if not self.opt.no_style_loss:
+        if not self.opt.no_vgg_loss:
             # Content Consistency
             self.netG.content_extractor.requires_grad_(False)
             contour_2 = self.netG.extract_content(fake_image_2)
