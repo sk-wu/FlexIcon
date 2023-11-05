@@ -88,14 +88,7 @@ class SPADE(nn.Module):
 
         gamma = self.mlp_gamma(actv)
         beta = self.mlp_beta(actv)
-
-        # icon 128 ex1
-        # relation = torch.sum(normalized * gamma, -1, keepdim=True)
-        # relation = torch.sigmoid(relation)
-        # relation = relation.expand_as(style_vector)
-        # aggregated_features = relation * beta
-        # out = normalized + aggregated_features + beta
-
+        
         out = normalized * (1 + gamma) + beta
 
         return out
