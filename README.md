@@ -6,13 +6,6 @@ PyTorch Implementation of Our Paper "FlexIcon: Flexible Icon Colorization via Gu
   <img src='imgs/teaser.png' width='1000'/>
 </p>
 
-Note:
-
-1 We apologize for not having time to clean up the repository. There may be some unnecessary parameters and code.
-
-2 This version does not fully correspond to our paper since the original code is privately used for our project. However, you can use the current version as a baseline because the visual effects are approaching.
-
-
 ## Environment
 ```
 python==3.8.16
