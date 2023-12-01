@@ -6,6 +6,9 @@ import torch
 from util import util
 
 
+'''
+We apologize for not having time to clean up the repository. There may be some unnecessary parameters and code.
+'''
 class BaseOptions():
     def __init__(self):
         self.parser = argparse.ArgumentParser()
