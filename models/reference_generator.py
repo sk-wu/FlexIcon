@@ -114,6 +114,9 @@ class Encoder(nn.Module):
         return output
 
 
+'''
+This version does not fully correspond to our paper since the original code is used for our private project. However, you can use the current version as a baseline because the visual effects are approaching.
+'''
 class ReferenceGenerator(nn.Module):
     def __init__(self, spec_norm=False, LR=0.2):
         super(ReferenceGenerator, self).__init__()
